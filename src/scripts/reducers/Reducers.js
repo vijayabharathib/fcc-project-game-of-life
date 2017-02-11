@@ -29,10 +29,13 @@ const _clearBoard=(state)=>{
 }
 const _findLiveNeighbours=(state,r,c)=>{
   let liveNeibours=0;
-  for(let i=r-1;i<r+1;i++){
-    for(let j=c-1;j<r+1;j++){
-      if(i>=0 && j>=0 && i<state.row && j<state.col && i!=j){
-        liveNeibours+=state.cells[i][j];
+  let rowLimit=r+1;
+  let colLimit=c+1;
+  for(let x=r-1;x<=rowLimit;x++){
+    for(let j=c-1;j<=colLimit;j++){
+      if(x>=0 && j>=0 && x<state.row && j<state.col && !(x==r && j==c)){
+        //console.log(`${r}${c} - ${x}${j}`);
+        liveNeibours+=state.cells[x][j];
       }
     }
   }
@@ -42,14 +45,27 @@ const _nextGeneration=(state)=>{
   let newCells=[];
   let cells=state.cells;
   let dead=0;
+  let alive=1;
   for(let i=0;i<state.row;i++){
     let row=[];
-    for(let j=0;i<state.col;i++){
+    for(let j=0;j<state.col;j++){
       row.push(cells[i][j]);
       let eco=_findLiveNeighbours(state,i,j);
-      if(cells[i][j]===dead && eco===3){
-        row[j]=!dead;
+      console.log(`%${eco}`);
+      if(cells[i][j]===alive){
+        if(eco < 2)
+          row[j]=dead;
+        else if(eco>3)
+          row[j]=dead;
+        //else
+          //stay alive
+      }else if(cells[i][j]===dead){
+        if(eco===3)
+          row[j]=alive;
+        //else
+          //stay dead
       }
+
     }
     newCells.push(row);
     row=[];
@@ -77,5 +93,10 @@ const reducer=(state={},action)=>{
       return newState;
   }
 }
-
+/*let actual={cells: [
+    [1,1,0],
+    [0,0,0],
+    [1,0,0]
+  ],row:3,col:3};
+let result=reducer(actual,{type: 'NEXT_GENERATION'})*/
 export default reducer;

@@ -33,7 +33,7 @@ test("UT - reducers - clearBoard",(t)=>{
 });
 
 test("UT - reducers - nextGen - game of life rules",(t)=>{
-  //t.plan(8);
+  t.plan(8);
   const board=reducer({},createBoard(3,3));
   board.cells=[
     [1,1,0],
@@ -42,19 +42,20 @@ test("UT - reducers - nextGen - game of life rules",(t)=>{
   ];
   let nextBoard=reducer(board,nextGeneration());
   let dead=0;
-  t.equal(nextBoard,dead,"live cell with just one neighbour dies");
-  /*t.equal(nextBoard.cells[2][0],dead,"live cell with no neighbour dies");
-  t.equal(nextBoard.cells[1][1],!dead,"dead cell with exactly three neighbours springs to life");
+  let alive=1;
+  t.equal(nextBoard.cells[0][0],dead,"live cell with just one neighbour dies");
+  t.equal(nextBoard.cells[2][0],dead,"live cell with no neighbour dies");
+  t.equal(nextBoard.cells[1][1],alive,"dead cell with exactly three neighbours springs to life");
   board.cells=[
     [1,1,1],
     [1,1,0],
     [0,0,1]
   ];
   nextBoard=reducer(board,nextGeneration());
-  t.equal(nextBoard.cells[0][0],!dead,"live cell with just two neighbours lives on");
-  t.equal(nextBoard.cells[0][2],!dead,"live cell with just three neighbours lives on");
+  t.equal(nextBoard.cells[0][0],alive,"live cell with just two neighbours lives on");
+  t.equal(nextBoard.cells[0][2],alive,"live cell with just three neighbours lives on");
   t.equal(nextBoard.cells[0][1],dead,"live cell with more than three(4) neighbours dies");
   t.equal(nextBoard.cells[1][1],dead,"live cell with more than three(5) neighbours dies");
-  t.equal(nextBoard.cells[2][0],dead,"dead cell with two neighbours stays dead");*/
-
+  //negative tests
+  t.equal(nextBoard.cells[2][0],dead,"dead cell with two neighbours stays dead");
 });
