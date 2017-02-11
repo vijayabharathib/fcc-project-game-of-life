@@ -59,3 +59,10 @@ test("UT - reducers - nextGen - game of life rules",(t)=>{
   //negative tests
   t.equal(nextBoard.cells[2][0],dead,"dead cell with two neighbours stays dead");
 });
+
+test("UT - reducers - nextGen - game of life rules",(t)=>{
+  t.plan(1);
+  const board=reducer({},createBoard(3,3));
+  const newBoard=reducer(board,randomizeBoard());
+  t.equal(newBoard,board,"");
+});

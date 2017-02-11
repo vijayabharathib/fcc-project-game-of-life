@@ -1,0 +1,5 @@
+.c-cell--alive {
+  background: green; }
+
+.c-cell--dead {
+  background: #ccc; }

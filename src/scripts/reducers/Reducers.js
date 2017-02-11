@@ -16,9 +16,11 @@ const _createNewBoard=(state,row,col)=>{
 }
 
 const _randomizeBoard=(state)=>{
-  state.cells= state.cells.map((rows)=>{rows.map(()=>{
-    return Math.floor(Math.random()*10)%2;
-  })});
+  state.cells= state.cells.map((rows)=>{
+    return rows.map(()=>{
+      return Math.floor(Math.random()*10)%2;
+    });
+});
 
   return state;
 }
@@ -51,7 +53,6 @@ const _nextGeneration=(state)=>{
     for(let j=0;j<state.col;j++){
       row.push(cells[i][j]);
       let eco=_findLiveNeighbours(state,i,j);
-      console.log(`%${eco}`);
       if(cells[i][j]===alive){
         if(eco < 2)
           row[j]=dead;
@@ -93,10 +94,8 @@ const reducer=(state={},action)=>{
       return newState;
   }
 }
-/*let actual={cells: [
-    [1,1,0],
-    [0,0,0],
-    [1,0,0]
-  ],row:3,col:3};
-let result=reducer(actual,{type: 'NEXT_GENERATION'})*/
+// let st=reducer({},{type: 'CREATE_BOARD',row:3,col:3});
+// let n=reducer(st,{type:'RANDOMIZE_BOARD'});
+// console.log(n);
+//
 export default reducer;
