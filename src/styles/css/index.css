@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box; }
+
+html {
+  height: 100%; }
+
+body {
+  background: #062107;
+  height: 100%;
+  margin: 2px; }
+  @media (min-width: 40em) {
+    body {
+      margin-top: 40px; } }
+
+.svg-sprite {
+  display: none; }
+
+.container {
+  margin: 0 auto;
+  padding: 5px;
+  border-radius: 10px; }
+  @media (min-width: 40em) {
+    .container {
+      padding: 10px;
+      box-shadow: 0; } }
+
+.brand {
+  font-size: 3em;
+  margin: 10px auto;
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 -1px 1px #15781B, -1px -2px 1px #15781B; }

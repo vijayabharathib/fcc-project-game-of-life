@@ -1,7 +1,8 @@
+@import "settings";
 .c-cell--alive {
-  background: green;
+  background: $color-primary-2;
 }
 
 .c-cell--dead {
-  background: #ccc;
+  background: darken($color-primary-3,25%);
 }

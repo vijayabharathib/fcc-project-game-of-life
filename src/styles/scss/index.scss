@@ -1,0 +1,40 @@
+@import "settings";
+
+*{
+  box-sizing: border-box;
+}
+
+html{
+  height: 100%;
+}
+
+body {
+  background: darken($color-primary-4,20%);
+  height: 100%;
+  margin: 2px;
+  @media(min-width: 40em) {
+    margin-top: 40px;
+  }
+}
+.svg-sprite {
+  display: none;
+}
+.container{
+  margin: 0 auto;
+  padding: 5px;
+  border-radius: 10px;
+  @media(min-width: 40em) {
+    padding: 10px;
+    box-shadow: 0;
+  }
+}
+
+
+.brand{
+  font-size: 3em;
+  margin: 10px auto;
+  text-align: center;
+  color: $color-white;
+  text-shadow: 0 -1px 1px $color-primary-4,
+    -1px -2px 1px $color-primary-4;
+}

@@ -60,9 +60,9 @@ test("UT - reducers - nextGen - game of life rules",(t)=>{
   t.equal(nextBoard.cells[2][0],dead,"dead cell with two neighbours stays dead");
 });
 
-test("UT - reducers - nextGen - game of life rules",(t)=>{
+test("UT - reducers - randomizeBoard",(t)=>{
   t.plan(1);
   const board=reducer({},createBoard(3,3));
   const newBoard=reducer(board,randomizeBoard());
-  t.equal(newBoard,board,"");
+  t.notDeepEqual(newBoard,board,"randomizeBoard should shuffle live cells");
 });
