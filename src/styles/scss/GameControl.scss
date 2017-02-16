@@ -1,0 +1,21 @@
+@import 'settings';
+
+.game__control {
+  width: 100%;
+  border-radius: 5px;
+  background: transparentize($color-white,.8);
+}
+
+.game__toggle {
+  padding: 5px;
+  font-size: 1.2em;
+  margin: 10px;
+  border-radius: 5px;
+  border: 0;
+  box-shadow: 0;
+}
+
+.game__generation {
+  color: $color-white;
+  display: inline-block;
+}

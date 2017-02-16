@@ -1,3 +1,5 @@
+import {startGame} from '../actions/ActionCreators';
+
 const _createNewBoard=(state,row,col)=>{
   const cells=[];
   for(let i=0;i<row;i++){
@@ -8,10 +10,13 @@ const _createNewBoard=(state,row,col)=>{
     cells.push(rows);
     rows=undefined;
   }
+
   return {
     row,
     col,
-    cells
+    cells,
+    generation: 0,
+    playing: false
   };
 }
 
@@ -21,13 +26,15 @@ const _randomizeBoard=(state)=>{
       return Math.floor(Math.random()*10)%2;
     });
 });
-
+  state.generation=0;
   return state;
 }
 
 const _clearBoard=(state)=>{
   state.cells= state.cells.map((rows)=>{rows.map(v=>0)});
+  state.generation=0;
   return state;
+
 }
 const _findLiveNeighbours=(state,r,c)=>{
   let liveNeibours=0;
@@ -72,11 +79,29 @@ const _nextGeneration=(state)=>{
     row=[];
   }
   state.cells=newCells;
+  state.generation+=1;
   return state;
 }
 
+const _startGame=(state,intervalID)=>{
+  state.playing=true;
+  state.intervalID=intervalID;
+  return state;
+}
+
+const _stopGame=(state) => {
+  state.playing=false;
+  clearInterval(state.intervalID);
+  return state;
+}
 const reducer=(state={},action)=>{
-  let newState=Object.assign({},{cells: state.cells, row: state.row, col: state.col});
+  let newState=Object.assign({},{
+    cells: state.cells,
+    row: state.row,
+    col: state.col,
+    generation: state.generation,
+    playing: state.playing,
+    intervalID: state.intervalID});
   switch (action.type) {
     case 'CREATE_BOARD':
       return _createNewBoard(newState,action.row,action.col);
@@ -90,6 +115,12 @@ const reducer=(state={},action)=>{
     case 'NEXT_GENERATION':
       return _nextGeneration(newState);
       break;
+    case 'START_GAME':
+        return _startGame(newState,action.intervalID);
+        break;
+    case 'STOP_GAME':
+        return _stopGame(newState);
+        break;
     default:
       return newState;
   }
