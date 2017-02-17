@@ -1,10 +1,11 @@
-import React, {PropTypes} from 'react';
+import React, {} from 'react';
 import '../../styles/css/Cell.css';
 
 let Cell = (props) => {
     let class_name="c-cell--"+(props.alive ? "alive" : "dead");
+
     return (
-      <td className={class_name}>
+      <td onClick={props.onClick} className={class_name}>
       </td>
     );
 }

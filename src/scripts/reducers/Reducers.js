@@ -1,4 +1,3 @@
-import {startGame} from '../actions/ActionCreators';
 
 const _createNewBoard=(state,row,col)=>{
   const cells=[];
@@ -31,7 +30,7 @@ const _randomizeBoard=(state)=>{
 }
 
 const _clearBoard=(state)=>{
-  state.cells= state.cells.map((rows)=>{rows.map(v=>0)});
+  state.cells= state.cells.map((rows)=>{return rows.map((v)=>{return 0})});
   state.generation=0;
   return state;
 
@@ -42,7 +41,7 @@ const _findLiveNeighbours=(state,r,c)=>{
   let colLimit=c+1;
   for(let x=r-1;x<=rowLimit;x++){
     for(let j=c-1;j<=colLimit;j++){
-      if(x>=0 && j>=0 && x<state.row && j<state.col && !(x==r && j==c)){
+      if(x>=0 && j>=0 && x<state.row && j<state.col && !(x===r && j===c)){
         //console.log(`${r}${c} - ${x}${j}`);
         liveNeibours+=state.cells[x][j];
       }
@@ -94,6 +93,18 @@ const _stopGame=(state) => {
   clearInterval(state.intervalID);
   return state;
 }
+const _toggleCell=(state,row,col)=>{
+  let newStatus=(state.cells[row][col]===1 ? 0 : 1);
+  state.cells[row][col]=newStatus;
+  let newCells=state.cells.map((row)=>{
+    return row.map((cell)=>{
+      return (cell===1?1:0); //DONT TOGGLE. JUST RETURN THE SAME
+    });
+  });
+  state.cells=newCells;
+  return state;
+}
+
 const reducer=(state={},action)=>{
   let newState=Object.assign({},{
     cells: state.cells,
@@ -105,22 +116,18 @@ const reducer=(state={},action)=>{
   switch (action.type) {
     case 'CREATE_BOARD':
       return _createNewBoard(newState,action.row,action.col);
-      break;
     case 'CLEAR_BOARD':
       return _clearBoard(newState);
-      break;
     case 'RANDOMIZE_BOARD':
       return _randomizeBoard(newState);
-      break;
     case 'NEXT_GENERATION':
       return _nextGeneration(newState);
-      break;
     case 'START_GAME':
         return _startGame(newState,action.intervalID);
-        break;
     case 'STOP_GAME':
         return _stopGame(newState);
-        break;
+    case 'TOGGLE_CELL':
+        return _toggleCell(newState,action.row,action.col);
     default:
       return newState;
   }
