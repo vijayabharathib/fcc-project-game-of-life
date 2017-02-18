@@ -1,10 +1,8 @@
 $color-white: #fff;
 $color-black: #000;
-$color-darkest: #592016;
-$color-dark: #a55c4d;
-$color-lightest: #efeceb;
-$color-mild: #be8c6e;
-$color-light: #f4d2b4;
+$color-gun-metal: #2c3539;
+$color-dark-slate-grey: #25383c;
+
 
 $color-primary-0: #4CAF52;	// Main Primary color */
 $color-primary-1: #A9E2AC;
@@ -68,5 +66,4 @@ $rgba-secondary-2-2: rgba(184,215,187,1);
 $rgba-secondary-2-3: rgba( 96,160,104,1);
 $rgba-secondary-2-4: rgba( 58,133, 68,1);
 
-$color-brand: $color-darkest;
 $color-black-70: transparentize($color-black,.3);

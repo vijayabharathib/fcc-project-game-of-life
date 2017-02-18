@@ -19,11 +19,16 @@ body {
   margin: 0 auto;
   padding: 5px;
   border-radius: 10px;
-  width: 100%; }
+  width: 100%;
+  text-align: center; }
   @media (min-width: 40em) {
     .container {
       padding: 10px;
       box-shadow: 0; } }
+
+.c-app__container {
+  text-align: center;
+  display: inline-block; }
 
 .brand {
   font-size: 3em;

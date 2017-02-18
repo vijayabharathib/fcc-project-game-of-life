@@ -28,9 +28,13 @@ body {
     box-shadow: 0;
   }
   width: 100%;
+  text-align: center;
 }
 
-
+.c-app__container {
+  text-align: center;
+  display: inline-block;
+}
 .brand{
   font-size: 3em;
   margin: 10px auto;

@@ -4,10 +4,9 @@ import GameControl from './GameControls';
 
 const App = () => {
   return(
-    <div className="container">
-      <GameBoard/>
-      <GameControl />
-    </div>
+        <GameBoard>
+          <GameControl />
+        </GameBoard>
   );
 }
 

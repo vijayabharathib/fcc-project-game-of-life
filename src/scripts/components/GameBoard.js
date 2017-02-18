@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import '../../styles/css/GameBoard.css';
 import {toggleCell} from '../actions/ActionCreators';
 
-let GameBoard =({cells,dispatch})=> {
+let GameBoard =({cells,control,dispatch})=> {
     let board=cells.map((rows,r)=>{
       let lineOfCells=rows.map((cell,c)=> {
         let activate=()=>{
@@ -21,18 +21,24 @@ let GameBoard =({cells,dispatch})=> {
     });
 
     return(
-      <table className="c-game__board">
-        <tbody>
-          {board}
-        </tbody>
-      </table>
+      <div className="c-app__container">
+          <div className="frame">
+            <table className="c-game__board">
+              <tbody>
+                {board}
+              </tbody>
+            </table>
+          </div>
+        {control}
+      </div>
     )
 
 }
 
-const mapStateToProps= (state) => {
+const mapStateToProps= (state,ownProps) => {
   return {
-    cells: state.cells
+    cells: state.cells,
+    control: ownProps.children
   }
 }
 

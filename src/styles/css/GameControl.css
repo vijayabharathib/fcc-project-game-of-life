@@ -1,8 +1,11 @@
 .game__control {
   margin: 10px auto;
   border-radius: 3px;
-  max-width: 50em;
-  background: rgba(255, 255, 255, 0.2); }
+  background: rgba(255, 255, 255, 0.2);
+  display: inline-block;
+  background: #25383c;
+  background: linear-gradient(to right, #2c3539, #25383c, #2c3539);
+  box-shadow: 20px 0 40px 10px #2c3539; }
 
 .game__toggle {
   padding: 5px;
@@ -12,15 +15,20 @@
   border: 0;
   box-shadow: 0;
   outline: 0;
-  background: #7B154D;
-  color: #E5ABCB;
+  color: #7B154D;
+  background-color: #E5ABCB;
+  background: linear-gradient(to bottom, #E5ABCB, #D17AAA);
   min-width: 7em; }
+  .game__toggle:hover {
+    background: linear-gradient(to top, #E5ABCB, #D17AAA);
+    cursor: pointer; }
 
 .game__generation {
-  color: #E5ABCB;
+  color: #7B154D;
   padding: 5px;
   margin: 10px;
   border-radius: 3px;
+  box-shadow: inset -1px -1px 1px #7B154D;
   display: inline-block;
-  background: #7B154D;
+  background: #E5ABCB;
   font-size: 1.2em; }

@@ -2,9 +2,32 @@
   margin: 0 auto;
   padding: 5px;
   background: #E5ABCB;
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 10px; }
+  border: 2px solid #2c3539;
+  border-left: 0;
+  border-bottom: 0;
+  border-radius: 5px; }
   .c-game__board td {
     width: 10px;
     height: 10px;
     border-radius: 50%; }
+
+.frame {
+  padding: 30px 15px 10px 15px;
+  border-radius: 10px;
+  display: inline-block;
+  background: grey;
+  background: linear-gradient(to bottom, grey, lightgrey, #25383c);
+  margin: 0 auto;
+  width: auto;
+  position: relative;
+  box-shadow: 30px -20px 80px 20px #2c3539; }
+  .frame::after {
+    content: '';
+    width: 15px;
+    height: 15px;
+    top: 5px;
+    background: black;
+    border-radius: 50%;
+    border: 2px solid #25383c;
+    position: absolute;
+    margin: 0 auto; }

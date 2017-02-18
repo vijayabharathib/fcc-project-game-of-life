@@ -3,11 +3,37 @@
   margin: 0 auto;
   padding: 5px;
   background: $color-secondary-2-1;
-  background: transparentize($color-white,.7);
-  border-radius: 10px;
+  border: 2px solid $color-gun-metal;
+  border-left: 0;
+  border-bottom: 0;
+//  background: transparentize($color-white,.7);
+  border-radius: 5px;
   td {
     width: 10px;
     height: 10px;
     border-radius: 50%;
+  }
+}
+
+.frame {
+  padding: 30px 15px 10px 15px;
+  border-radius: 10px;
+  display: inline-block;
+  background: grey;
+  background: linear-gradient(to bottom, grey, lightgrey, $color-dark-slate-grey);
+  margin: 0 auto;
+  width: auto;
+  position: relative;
+  box-shadow: 30px -20px 80px 20px $color-gun-metal;
+  &::after {
+    content: '';
+    width: 15px;
+    height: 15px;
+    top: 5px;
+    background: black;
+    border-radius: 50%;
+    border: 2px solid $color-dark-slate-grey;
+    position: absolute;
+    margin: 0 auto;
   }
 }

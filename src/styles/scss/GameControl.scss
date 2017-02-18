@@ -3,8 +3,15 @@
 .game__control {
   margin: 10px auto;
   border-radius: 3px;
-  max-width: 50em;;
   background: transparentize($color-white,.8);
+  display: inline-block;
+  background: $color-dark-slate-grey;
+  background: linear-gradient(to right,
+    $color-gun-metal,
+    $color-dark-slate-grey,
+    $color-gun-metal);
+  box-shadow: 20px 0 40px 10px $color-gun-metal;
+
 }
 
 .game__toggle {
@@ -15,17 +22,23 @@
   border: 0;
   box-shadow: 0;
   outline: 0;
-  background: $color-secondary-2-4;
-  color: $color-secondary-2-1;
+  color: $color-secondary-2-4;
+  background-color: $color-secondary-2-1;
+  background: linear-gradient(to bottom,$color-secondary-2-1,$color-secondary-2-2);
   min-width: 7em;
+  &:hover {
+    background: linear-gradient(to top,$color-secondary-2-1,$color-secondary-2-2);
+    cursor: pointer;
+  }
 }
 
 .game__generation {
-  color: $color-secondary-2-1;
+  color: $color-secondary-2-4;
   padding: 5px;
   margin: 10px;
   border-radius: 3px;
+  box-shadow: inset -1px -1px 1px $color-secondary-2-4;
   display: inline-block;
-  background: $color-secondary-2-4;
+  background: $color-secondary-2-1;
   font-size: 1.2em;
 }
