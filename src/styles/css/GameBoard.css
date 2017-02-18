@@ -1,5 +1,9 @@
 .c-game__board {
-  border: 1px solid grey; }
+  margin: 0 auto;
+  padding: 5px;
+  background: #E5ABCB;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px; }
   .c-game__board td {
     width: 10px;
     height: 10px;

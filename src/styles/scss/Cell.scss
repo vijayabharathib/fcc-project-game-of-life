@@ -1,8 +1,8 @@
-@import "settings";
+@import  'settings';
 .c-cell--alive {
-  background: $color-primary-2;
-}
+  background: $color-secondary-2-3; }
 
 .c-cell--dead {
-  background: darken($color-primary-3,25%);
+  background: $color-secondary-2-1;
+  background: transparentize($color-white,.8);
 }

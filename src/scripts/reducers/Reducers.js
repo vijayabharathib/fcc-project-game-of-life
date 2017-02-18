@@ -104,7 +104,47 @@ const _toggleCell=(state,row,col)=>{
   state.cells=newCells;
   return state;
 }
-
+const _gosperGlider = (state)=>{
+  state.generation=0;
+  let newCells=state.cells;
+  newCells[1][25]=1;
+  newCells[2][23]=1;
+  newCells[2][25]=1;
+  newCells[3][13]=1;
+  newCells[3][14]=1;
+  newCells[3][21]=1;
+  newCells[3][22]=1;
+  newCells[3][35]=1;
+  newCells[3][36]=1;
+  newCells[4][12]=1;
+  newCells[4][16]=1;
+  newCells[4][21]=1;
+  newCells[4][22]=1;
+  newCells[4][35]=1;
+  newCells[4][36]=1;
+  newCells[5][1]=1;
+  newCells[5][2]=1;
+  newCells[5][11]=1;
+  newCells[5][17]=1;
+  newCells[5][21]=1;
+  newCells[5][22]=1;
+  newCells[6][1]=1;
+  newCells[6][2]=1;
+  newCells[6][11]=1;
+  newCells[6][15]=1;
+  newCells[6][17]=1;
+  newCells[6][18]=1;
+  newCells[6][23]=1;
+  newCells[6][25]=1;
+  newCells[7][11]=1;
+  newCells[7][17]=1;
+  newCells[7][25]=1;
+  newCells[8][12]=1;
+  newCells[8][16]=1;
+  newCells[9][13]=1;
+  newCells[9][14]=1;
+  return state;
+}
 const reducer=(state={},action)=>{
   let newState=Object.assign({},{
     cells: state.cells,
@@ -128,6 +168,8 @@ const reducer=(state={},action)=>{
         return _stopGame(newState);
     case 'TOGGLE_CELL':
         return _toggleCell(newState,action.row,action.col);
+    case 'GOSPER_GLIDER':
+        return _gosperGlider(newState);
     default:
       return newState;
   }

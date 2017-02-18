@@ -1,16 +1,26 @@
 .game__control {
-  width: 100%;
-  border-radius: 5px;
+  margin: 10px auto;
+  border-radius: 3px;
+  max-width: 50em;
   background: rgba(255, 255, 255, 0.2); }
 
 .game__toggle {
   padding: 5px;
   font-size: 1.2em;
   margin: 10px;
-  border-radius: 5px;
+  border-radius: 3px;
   border: 0;
-  box-shadow: 0; }
+  box-shadow: 0;
+  outline: 0;
+  background: #7B154D;
+  color: #E5ABCB;
+  min-width: 7em; }
 
 .game__generation {
-  color: #fff;
-  display: inline-block; }
+  color: #E5ABCB;
+  padding: 5px;
+  margin: 10px;
+  border-radius: 3px;
+  display: inline-block;
+  background: #7B154D;
+  font-size: 1.2em; }

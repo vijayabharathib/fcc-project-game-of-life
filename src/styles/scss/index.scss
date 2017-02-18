@@ -9,11 +9,11 @@ html{
 }
 
 body {
-  background: darken($color-primary-4,20%);
+  background: $color-secondary-2-1;
   height: 100%;
   margin: 2px;
   @media(min-width: 40em) {
-    margin-top: 40px;
+    margin-top: 10px;
   }
 }
 .svg-sprite {
@@ -27,6 +27,7 @@ body {
     padding: 10px;
     box-shadow: 0;
   }
+  width: 100%;
 }
 
 
@@ -34,7 +35,7 @@ body {
   font-size: 3em;
   margin: 10px auto;
   text-align: center;
-  color: $color-white;
-  text-shadow: 0 -1px 1px $color-primary-4,
-    -1px -2px 1px $color-primary-4;
+  color: $color-secondary-2-0;
+  text-shadow: 0 -1px 1px $color-secondary-2-3,
+    -1px -2px 1px $color-secondary-2-4;
 }

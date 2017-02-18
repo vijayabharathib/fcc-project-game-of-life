@@ -1,5 +1,10 @@
+@import 'settings';
 .c-game__board {
-  border: 1px solid grey;
+  margin: 0 auto;
+  padding: 5px;
+  background: $color-secondary-2-1;
+  background: transparentize($color-white,.7);
+  border-radius: 10px;
   td {
     width: 10px;
     height: 10px;
