@@ -19,8 +19,8 @@
 .game__toggle {
   flex-grow: 1;
   padding: 5px;
+  margin: 10px;
   font-size: 1.2em;
-  margin: 5px;
   border-radius: 3px;
   border: 0;
   box-shadow: 0;

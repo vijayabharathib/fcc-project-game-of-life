@@ -29,7 +29,7 @@ test("UT - reducers - clearBoard",(t)=>{
   const actual=reducer(board,clearBoard());
   const message="Reducer should clear cells";
   const sum=actual.cells.reduce((a,b)=> a.concat(b),[]).reduce((a,b)=>(a+b),0);
-  t.notDeepEqual(sum,0,message);
+  t.equal(sum,0,message);
 });
 
 test("UT - reducers - nextGen - game of life rules",(t)=>{
@@ -65,4 +65,5 @@ test("UT - reducers - randomizeBoard",(t)=>{
   const board=reducer({},createBoard(3,3));
   const newBoard=reducer(board,randomizeBoard());
   t.notDeepEqual(newBoard,board,"randomizeBoard should shuffle live cells");
+
 });
