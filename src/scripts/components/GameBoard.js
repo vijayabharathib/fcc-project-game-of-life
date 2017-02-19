@@ -4,9 +4,9 @@ import {connect} from 'react-redux';
 import '../../styles/css/GameBoard.css';
 import {toggleCell} from '../actions/ActionCreators';
 
-let GameBoard =({cells,control,dispatch})=> {
+let GameBoard =({state,control,dispatch})=> {
 
-    let board=cells.map((rows,r)=>{
+    let board=state.cells.map((rows,r)=>{
       let lineOfCells=rows.map((cell,c)=> {
         let activate=()=>{
           dispatch(toggleCell(r,c));
@@ -26,6 +26,7 @@ let GameBoard =({cells,control,dispatch})=> {
           <div className="frame">
             <ul className="c-game__board">
                 {board}
+                <li><h2 className="game__generation"> {`Generations: ${state.generation}`}</h2></li>
             </ul>
           </div>
         {control}
@@ -36,7 +37,7 @@ let GameBoard =({cells,control,dispatch})=> {
 
 const mapStateToProps= (state,ownProps) => {
   return {
-    cells: state.cells,
+    state,
     control: ownProps.children
   }
 }

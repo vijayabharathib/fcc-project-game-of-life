@@ -8,12 +8,27 @@ import './styles/css/index.css';
 import {createBoard,randomizeBoard,nextGeneration, startGame} from './scripts/actions/ActionCreators';
 
 let store = createStore(reducer,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const calcRow=()=>{
+  let row=20;
+  if(window.innerWidth<window.innerHeight){
+    row=Math.floor((window.innerHeight-250)/12);
+  }else{
+    row=Math.floor((window.innerHeight-300)/12);
+  }
+  return row;
+}
 
-store.dispatch(createBoard(30,40));
+const calcCol=()=>{
+  let col=20;
+  col=Math.floor((window.innerWidth-40)/12);
+  col=col > 70 ? 64 : col;
+  return col;
+}
+store.dispatch(createBoard(calcRow(),calcCol()));
 store.dispatch(randomizeBoard());
 let intervalID=setInterval( () =>{
   store.dispatch(nextGeneration());
-}, 100);
+}, 200);
 store.dispatch(startGame(intervalID));
 //setTimeout(()=>clearInterval(intervalID),30000);
 

@@ -2,38 +2,43 @@
   margin: 0 auto;
   padding: 5px;
   background: #E5ABCB;
-  border: 2px solid #2c3539;
   border-left: 0;
   border-bottom: 0;
   border-radius: 5px;
   resize: both;
   overflow: auto;
-  list-style: none; }
+  list-style: none;
+  border: 1px solid #7B154D; }
+  @media (min-width: 50em) {
+    .c-game__board {
+      border: 2px solid #2c3539; } }
   .c-game__board li {
     margin: 0;
     line-height: 12px; }
 
 .frame {
   resize: both;
-  padding: 30px 15px 10px 15px;
   border-radius: 10px;
   display: inline-block;
   background: grey;
   background: linear-gradient(to bottom, grey, lightgrey, #25383c);
   margin: 0 auto;
   width: auto;
-  position: relative;
-  box-shadow: 30px -20px 80px 20px #2c3539; }
-  .frame::after {
-    content: '';
-    width: 15px;
-    height: 15px;
-    top: 5px;
-    background: black;
-    border-radius: 50%;
-    border: 2px solid #25383c;
-    position: absolute;
-    margin: 0 auto; }
+  position: relative; }
+  @media (min-width: 50em) {
+    .frame {
+      padding: 30px 15px 10px 15px;
+      box-shadow: 30px -20px 80px 20px #2c3539; }
+      .frame::after {
+        content: '';
+        width: 15px;
+        height: 15px;
+        top: 5px;
+        background: black;
+        border-radius: 50%;
+        border: 2px solid #25383c;
+        position: absolute;
+        margin: 0 auto; } }
 
 .row {
   list-style: none;
@@ -45,3 +50,14 @@
     border-radius: 50%;
     display: inline-block;
     margin: 1px; }
+
+.game__generation {
+  color: #7B154D;
+  margin: 0;
+  border-top: 1px solid white;
+  padding-top: 5px;
+  margin-top: 5px;
+  display: block;
+  background: #E5ABCB;
+  font-size: 1.2em;
+  width: inherit; }

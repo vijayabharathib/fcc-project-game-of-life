@@ -2,33 +2,36 @@
   margin: 10px auto;
   border-radius: 3px;
   background: rgba(255, 255, 255, 0.2);
-  display: inline-block;
   background: #25383c;
   background: linear-gradient(to right, #2c3539, #25383c, #2c3539);
-  box-shadow: 20px 0 40px 10px #2c3539; }
+  width: inherit; }
+  @media (min-width: 40em) {
+    .game__control {
+      box-shadow: 30px 0 80px 20px #2c3539; } }
+
+.control__list {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around; }
 
 .game__toggle {
+  flex-grow: 1;
   padding: 5px;
   font-size: 1.2em;
-  margin: 10px;
+  margin: 5px;
   border-radius: 3px;
   border: 0;
   box-shadow: 0;
   outline: 0;
   color: #7B154D;
   background-color: #E5ABCB;
-  background: linear-gradient(to bottom, #E5ABCB, #D17AAA);
-  min-width: 7em; }
+  background: linear-gradient(to bottom, #E5ABCB, #D17AAA); }
   .game__toggle:hover {
     background: linear-gradient(to top, #E5ABCB, #D17AAA);
     cursor: pointer; }
-
-.game__generation {
-  color: #7B154D;
-  padding: 5px;
-  margin: 10px;
-  border-radius: 3px;
-  box-shadow: inset -1px -1px 1px #7B154D;
-  display: inline-block;
-  background: #E5ABCB;
-  font-size: 1.2em; }
+  @media (min-width: 40em) {
+    .game__toggle {
+      width: inherit;
+      display: inline-block; } }

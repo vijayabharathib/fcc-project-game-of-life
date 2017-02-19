@@ -13,7 +13,7 @@ let GameControl =({state,dispatch})=> {
     let start=()=>{
       let intervalID=setInterval( () =>{
         dispatch(nextGeneration());
-      }, 100);
+      }, 200);
       dispatch(startGame(intervalID));
     }
     let toggleGame = () => {
@@ -37,16 +37,20 @@ let GameControl =({state,dispatch})=> {
       dispatch(gosperGlider());
       start();
     }
+    let gosperButton=()=>{
+      let e=undefined;
+      if(state.col>36){
+        e=(<li className="game__toggle" onClick={gosper}>Gosper Glider</li>);
+      }
+      return e;
+    }
     return(
       <div className="game__control">
         <ul className="control__list">
-          <li><button className="game__toggle" onClick={toggleGame}>{status}</button></li>
-          <li><button className="game__toggle" onClick={randomCells}>Random</button></li>
-          <li><button className="game__toggle" onClick={clear}>Clear</button></li>
-          <li><button className="game__toggle" onClick={gosper}>Gosper Glider</button></li>
-        </ul>
-        <ul className="control__list">
-          <li><h2 className="game__generation"> {`Generations: ${state.generation}`}</h2></li>
+          <li className="game__toggle" onClick={toggleGame}>{status}</li>
+          <li className="game__toggle" onClick={randomCells}>Random</li>
+          <li className="game__toggle" onClick={clear}>Clear</li>
+          {gosperButton()}
         </ul>
       </div>
     )

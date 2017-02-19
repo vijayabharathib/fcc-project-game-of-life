@@ -3,7 +3,6 @@
   margin: 0 auto;
   padding: 5px;
   background: $color-secondary-2-1;
-  border: 2px solid $color-gun-metal;
   border-left: 0;
   border-bottom: 0;
 //  background: transparentize($color-white,.7);
@@ -11,6 +10,10 @@
   resize: both;
   overflow: auto;
   list-style: none;
+  border: 1px solid $color-secondary-2-4;
+  @media (min-width: 50em) {
+    border: 2px solid $color-gun-metal;
+  }
   li{
     margin: 0;
     line-height: 12px;
@@ -19,7 +22,6 @@
 
 .frame {
   resize: both;
-  padding: 30px 15px 10px 15px;
   border-radius: 10px;
   display: inline-block;
   background: grey;
@@ -27,17 +29,20 @@
   margin: 0 auto;
   width: auto;
   position: relative;
-  box-shadow: 30px -20px 80px 20px $color-gun-metal;
-  &::after {
-    content: '';
-    width: 15px;
-    height: 15px;
-    top: 5px;
-    background: black;
-    border-radius: 50%;
-    border: 2px solid $color-dark-slate-grey;
-    position: absolute;
-    margin: 0 auto;
+  @media (min-width: 50em){
+    padding: 30px 15px 10px 15px;
+    box-shadow: 30px -20px 80px 20px $color-gun-metal;
+    &::after {
+      content: '';
+      width: 15px;
+      height: 15px;
+      top: 5px;
+      background: black;
+      border-radius: 50%;
+      border: 2px solid $color-dark-slate-grey;
+      position: absolute;
+      margin: 0 auto;
+    }
   }
 }
 
@@ -52,4 +57,17 @@
     display: inline-block;
     margin: 1px;
   }
+}
+
+.game__generation {
+  color: $color-secondary-2-4;
+  margin: 0;
+  border-top: 1px solid white;
+  padding-top: 5px;
+  margin-top: 5px;
+  display: block;
+  background: $color-secondary-2-1;
+  font-size: 1.2em;
+  width: inherit;
+
 }
