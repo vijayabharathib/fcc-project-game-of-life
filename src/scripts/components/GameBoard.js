@@ -26,7 +26,7 @@ let GameBoard =({state,control,dispatch})=> {
           <div className="frame">
             <ul className="c-game__board">
                 {board}
-                <li><h2 className="game__generation"> {`Generations: ${state.generation}`}</h2></li>
+                <li className="game__generation"> {`Generations: ${state.generation}`}</li>
             </ul>
           </div>
         {control}

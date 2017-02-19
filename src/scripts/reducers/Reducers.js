@@ -15,7 +15,7 @@ const _createNewBoard=(state,row,col)=>{
     col,
     cells,
     generation: 0,
-    playing: false
+    playing: false,
   };
 }
 
@@ -35,6 +35,7 @@ const _clearBoard=(state)=>{
   return state;
 
 }
+
 const _findLiveNeighbours=(state,r,c)=>{
   let liveNeibours=0;
   let rowLimit=r+1;
@@ -60,15 +61,17 @@ const _nextGeneration=(state)=>{
       row.push(cells[i][j]);
       let eco=_findLiveNeighbours(state,i,j);
       if(cells[i][j]===alive){
-        if(eco < 2)
+        if(eco < 2){
           row[j]=dead;
-        else if(eco>3)
+        }else if(eco>3){
           row[j]=dead;
+        }
         //else
           //stay alive
       }else if(cells[i][j]===dead){
-        if(eco===3)
+        if(eco===3){
           row[j]=alive;
+        }
         //else
           //stay dead
       }
