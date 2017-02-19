@@ -5,13 +5,16 @@
   border: 2px solid #2c3539;
   border-left: 0;
   border-bottom: 0;
-  border-radius: 5px; }
-  .c-game__board td {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%; }
+  border-radius: 5px;
+  resize: both;
+  overflow: auto;
+  list-style: none; }
+  .c-game__board li {
+    margin: 0;
+    line-height: 12px; }
 
 .frame {
+  resize: both;
   padding: 30px 15px 10px 15px;
   border-radius: 10px;
   display: inline-block;
@@ -31,3 +34,14 @@
     border: 2px solid #25383c;
     position: absolute;
     margin: 0 auto; }
+
+.row {
+  list-style: none;
+  margin: 0;
+  padding-left: 0; }
+  .row li {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 1px; }

@@ -9,11 +9,11 @@ import {createBoard,randomizeBoard,nextGeneration, startGame} from './scripts/ac
 
 let store = createStore(reducer,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
-store.dispatch(createBoard(37,64));
+store.dispatch(createBoard(30,40));
 store.dispatch(randomizeBoard());
 let intervalID=setInterval( () =>{
   store.dispatch(nextGeneration());
-}, 300);
+}, 100);
 store.dispatch(startGame(intervalID));
 //setTimeout(()=>clearInterval(intervalID),30000);
 

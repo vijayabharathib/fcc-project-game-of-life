@@ -8,14 +8,17 @@
   border-bottom: 0;
 //  background: transparentize($color-white,.7);
   border-radius: 5px;
-  td {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
+  resize: both;
+  overflow: auto;
+  list-style: none;
+  li{
+    margin: 0;
+    line-height: 12px;
   }
 }
 
 .frame {
+  resize: both;
   padding: 30px 15px 10px 15px;
   border-radius: 10px;
   display: inline-block;
@@ -35,5 +38,18 @@
     border: 2px solid $color-dark-slate-grey;
     position: absolute;
     margin: 0 auto;
+  }
+}
+
+.row {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+  li {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 1px;
   }
 }

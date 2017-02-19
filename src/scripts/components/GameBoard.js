@@ -5,6 +5,7 @@ import '../../styles/css/GameBoard.css';
 import {toggleCell} from '../actions/ActionCreators';
 
 let GameBoard =({cells,control,dispatch})=> {
+
     let board=cells.map((rows,r)=>{
       let lineOfCells=rows.map((cell,c)=> {
         let activate=()=>{
@@ -15,19 +16,17 @@ let GameBoard =({cells,control,dispatch})=> {
         );
       });
 
-      return (<tr key={`${r}`}>
+      return (<li key={r}><ul className="row" key={r}>
         {lineOfCells}
-      </tr>);
+      </ul></li>);
     });
 
     return(
       <div className="c-app__container">
           <div className="frame">
-            <table className="c-game__board">
-              <tbody>
+            <ul className="c-game__board">
                 {board}
-              </tbody>
-            </table>
+            </ul>
           </div>
         {control}
       </div>
