@@ -1,13 +1,12 @@
 {
   "name": "Game-of-Life",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": false,
   "homepage": "http://vijayabharathib.github.io/fcc-project-game-of-life",
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-react": "^6.16.0",
-    "coveralls": "^2.11.15",
     "extend-tape": "^1.2.0",
     "faucet": "0.0.1",
     "gh-pages": "^0.12.0",
@@ -23,7 +22,6 @@
     "tape-jsx-equals": "^1.0.0"
   },
   "dependencies": {
-    "node-uuid": "^1.4.7",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-redux": "^5.0.1",
@@ -47,9 +45,7 @@
 
     "style": "node-sass -r src/styles/scss -o src/styles/css --importer node_modules/node-sass-import",
     "local-test": "babel-node node_modules/.bin/tape --require ignore-styles test/**/*.test.js | faucet",
-    "test": "npm run coveralls",
-    "report": "nyc npm run local-test && nyc report --reporter=lcov",
-    "coveralls": "nyc npm run local-test && nyc report --reporter=text-lcov | coveralls",
+    "test": "nyc npm run local-test && nyc report --reporter=lcov",
     "watch": "npm-watch"
   }
 }
