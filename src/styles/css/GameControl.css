@@ -33,5 +33,4 @@
     cursor: pointer; }
   @media (min-width: 40em) {
     .game__toggle {
-      width: inherit;
       display: inline-block; } }

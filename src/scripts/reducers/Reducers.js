@@ -177,8 +177,5 @@ const reducer=(state={},action)=>{
       return newState;
   }
 }
-// let st=reducer({},{type: 'CREATE_BOARD',row:3,col:3});
-// let n=reducer(st,{type:'RANDOMIZE_BOARD'});
-// console.log(n);
-//
+
 export default reducer;

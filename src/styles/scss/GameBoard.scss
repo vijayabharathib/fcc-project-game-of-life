@@ -39,6 +39,7 @@
   position: relative;
   border: 1px solid $color-secondary-2-4;
   @media (min-width: 50em){
+    border: 0;
     padding: 30px 15px 10px 15px;
     box-shadow: 30px -20px 80px 20px $color-gun-metal;
     &::after {

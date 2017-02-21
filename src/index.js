@@ -9,19 +9,21 @@ import {createBoard,randomizeBoard,nextGeneration, startGame} from './scripts/ac
 
 let store = createStore(reducer,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 const calcRow=()=>{
-  let row=20;
-  if(window.innerWidth<window.innerHeight){
+  let row;
+  if(window.innerWidth<window.innerHeight){ //portrait
+    //-200 ->give some slack for control panel
     row=Math.floor((window.innerHeight-250)/12);
-  }else{
+  }else{//landscape
+    //-300 ->give some slack for control panel
     row=Math.floor((window.innerHeight-300)/12);
   }
   return row;
 }
 
 const calcCol=()=>{
-  let col=20;
+  let col;
   col=Math.floor((window.innerWidth-40)/12);
-  col=col > 70 ? 64 : col;
+  col=col > 70 ? 64 : col; //limit max col.
   return col;
 }
 store.dispatch(createBoard(calcRow(),calcCol()));
@@ -30,7 +32,6 @@ let intervalID=setInterval( () =>{
   store.dispatch(nextGeneration());
 }, 200);
 store.dispatch(startGame(intervalID));
-//setTimeout(()=>clearInterval(intervalID),30000);
 
 ReactDOM.render(
   <Provider store={store}>
